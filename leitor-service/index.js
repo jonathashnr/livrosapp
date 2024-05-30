@@ -24,19 +24,17 @@ const authenticate = (req, res, next) => {
 
 // Middleware de autenticação para verificar JWT
 const authenticateJwt = (req, res, next) => {
-    // const token = req.headers["authorization"]?.split(" ")[1];
-    // if (!token) {
-    //     return res.status(401).json({ error: "Token não fornecido" });
-    // }
-    // jwt.verify(token, jwtSecret, (err, decoded) => {
-    //     if (err) {
-    //         return res.status(401).json({ error: "Token inválido" });
-    //     }
-    //     req.leitor_id = decoded.id; // Adiciona o leitor_id ao request
-    //     next();
-    // });
-    req.leitor_id = 1; // Adiciona o leitor_id ao request
-    next();
+    const token = req.headers["authorization"]?.split(" ")[1];
+    if (!token) {
+        return res.status(401).json({ error: "Token não fornecido" });
+    }
+    jwt.verify(token, jwtSecret, (err, decoded) => {
+        if (err) {
+            return res.status(401).json({ error: "Token inválido" });
+        }
+        req.leitor_id = decoded.id; // Adiciona o leitor_id ao request
+        next();
+    });
 };
 
 // CRUD para Leitor (todos os endpoints requerem autenticação)
