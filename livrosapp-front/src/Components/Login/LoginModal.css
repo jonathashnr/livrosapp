@@ -1,0 +1,72 @@
+/* Estilos do LoginModal */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro com opacidade */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex; /* Mostrar modal quando .show é adicionado */
+}
+
+.modal-content {
+    background-color: var(--cor-card);
+    margin: auto;
+    padding: 20px;
+    border: 5px solid var(--cor-borda);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    color: var(--cor-fonte);
+    font-family: var(--fonte-geral);
+}
+
+.close {
+    color: var(--cor-fonte);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--cor-hover-1);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos do Formulário */
+.modal-form .input__geral {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 10px;
+    box-sizing: border-box; /* Garantir que padding e border sejam incluídos na largura e altura */
+}
+
+.modal-form .btn__geral {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    background-color: var(--cor-btn);
+    color: var(--cor-fonte);
+    cursor: pointer;
+    border: none; /* Remover a borda padrão do botão */
+    font-size: 16px; /* Ajustar o tamanho da fonte */
+}
+
+.modal-form .btn__geral:hover {
+    color: var(--cor-fonte-btn-hover);
+    box-shadow: -4px 2px var(--cor-hover-2);
+}

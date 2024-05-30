@@ -1,0 +1,51 @@
+export const books = [
+  {
+    id: 0,
+    title: "Senhor dos Anéis",
+    author: "J.R.R. Tolkien",
+    genre: "Fantasia",
+    status: "Vou Ler",
+  },
+  {
+    id: 1,
+    title: "Conan Omnibus 2 - Cidade dos Ladrões",
+    author: "Kurt Busiek, Timothy Truman, Cary Nord",
+    genre: "Sword and Sorcery",
+    status: "Vou Ler",
+  },
+  {
+    id: 2,
+    title: "As Crônicas do Gelo e Fogo - Dança dos Dragões",
+    author: "George R. R. Martin",
+    genre: "Fantasia",
+    status: "Vou Ler",
+  },
+  {
+    id: 3,
+    title: "Ozob - Protocolo Molotov",
+    author: "Daniel Caldela, Deive Pazos",
+    genre: "Fantasia, Cyberpunk",
+    status: "Vou Ler",
+  },
+  {
+    id: 4,
+    title: "As Crônicas da Guerra de Lodoss - O Deus do Fogo",
+    author: "Ryo Mizuno",
+    genre: "Fantasia, RPG",
+    status: "Vou Ler",
+  },
+  {
+    id: 5,
+    title: "The Legend of Zelda - Ocarina of Time",
+    author: "Akira Himekawa",
+    genre: "Fantasia",
+    status: "Vou Ler",
+  },
+  {
+    id: 6,
+    title: "Pathfinder 2e - Livro Básico",
+    author: "Logan Bonner",
+    genre: "RPG",
+    status: "Vou Ler",
+  },
+];

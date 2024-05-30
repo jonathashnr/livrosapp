@@ -1,0 +1,19 @@
+.books__container {
+    display: grid;
+    padding: 1em 0.5em;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1em;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .books__container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .books__container {
+        grid-template-columns: 1fr;
+    }
+}
