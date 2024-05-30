@@ -5,6 +5,9 @@ const dbPath = path.resolve(__dirname, "persistence", "leitor.db");
 const db = new sqlite3.Database(dbPath);
 
 db.serialize(() => {
+    // Ativar verificação de chaves estrangeiras
+    db.run("PRAGMA foreign_keys = ON");
+
     // Tabela Leitor
     db.run(`CREATE TABLE IF NOT EXISTS leitor (
     id INTEGER PRIMARY KEY,
@@ -39,7 +42,7 @@ db.serialize(() => {
     // Tabela Resenha
     db.run(`CREATE TABLE IF NOT EXISTS resenha (
     id INTEGER PRIMARY KEY,
-    id_leitura INTEGER NOT NULL,
+    id_leitura INTEGER UNIQUE NOT NULL,
     nota INTEGER NOT NULL,
     comentario TEXT,
     FOREIGN KEY (id_leitura) REFERENCES leitura(id)
