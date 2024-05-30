@@ -1,11 +1,13 @@
 require("dotenv").config();
 const express = require("express");
+var cors = require("cors");
 const bodyParser = require("body-parser");
 const db = require("./database");
 const jwt = require("jsonwebtoken");
 const axios = require("axios");
 
 const app = express();
+app.use(cors());
 const port = 3001;
 const apiKey = process.env.API_KEY;
 const jwtSecret = process.env.JWT_SECRET;
