@@ -3,13 +3,12 @@ import axios from "axios";
 import "./BookForm.css";
 import SearchInput from "../Search/SearchInput";
 
-const BookForm = ({ form, setForm }) => {
+const BookForm = ({ form, setForm, reloadingList }) => {
     const [isbn, setIsbn] = useState("");
     const [status, setStatus] = useState("");
     const [error, setError] = useState("");
 
     const handleChangeBook = (value) => {
-        console.log(value);
         setIsbn(value);
     };
 
@@ -37,6 +36,10 @@ const BookForm = ({ form, setForm }) => {
                 "Erro ao fazer login. Verifique suas credenciais e tente novamente."
             );
             console.error("Erro:", error);
+        } finally {
+            reloadingList();
+            setIsbn("");
+            setStatus("");
         }
     };
 
@@ -51,19 +54,17 @@ const BookForm = ({ form, setForm }) => {
                 onChange={(e) => setStatus(e.target.value)}
             >
                 <option value="" className="texto"></option>
-                <option value="lendo" className="texto">
+                <option value="Lendo" className="texto">
                     Lendo
                 </option>
-                <option value="lido" className="texto">
+                <option value="Lido" className="texto">
                     Lido
                 </option>
-                <option value="lerei" className="texto">
+                <option value="Irei ler" className="texto">
                     Vou Ler
                 </option>
             </select>
-            <button type="submit">
-                {form.id ? "Salvar Alterações" : "Adicionar Livro"}
-            </button>
+            <button type="submit">Adicionar Leitura</button>
         </form>
     );
 };

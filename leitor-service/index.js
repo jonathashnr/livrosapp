@@ -191,6 +191,42 @@ app.get("/leitura/:id", authenticateJwt, (req, res) => {
     );
 });
 
+app.put("/leitura/:id", authenticateJwt, (req, res) => {
+    const { id } = req.params;
+    const { estado } = req.body;
+    db.get(
+        `SELECT * FROM leitura WHERE id = ? AND leitor_id = ?`,
+        [id, req.leitor_id],
+        (err, row) => {
+            if (err) {
+                res.status(500).json({ error: err.message });
+                return;
+            }
+            if (!row) {
+                res.status(403).json({ error: "Acesso negado" });
+                return;
+            }
+            db.run(
+                `UPDATE leitura SET estado = ? WHERE id = ?`,
+                [estado, id],
+                function (err) {
+                    if (err) {
+                        res.status(500).json({ error: err.message });
+                        return;
+                    }
+                    if (this.changes === 0) {
+                        res.status(404).json({
+                            error: "Leitura não encontrada",
+                        });
+                        return;
+                    }
+                    res.json({ leitura: { id, estado } });
+                }
+            );
+        }
+    );
+});
+
 // Obter todas as leituras de um usuário
 app.get("/leituras", authenticateJwt, (req, res) => {
     db.all(

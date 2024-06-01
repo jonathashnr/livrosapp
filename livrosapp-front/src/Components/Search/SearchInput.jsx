@@ -44,7 +44,6 @@ const DropdownItems = ({ onChange }) => {
     };
 
     const listBooks = async (e) => {
-        console.log("oi");
         try {
             let headers = {
                 "Content-Type": "application/json",

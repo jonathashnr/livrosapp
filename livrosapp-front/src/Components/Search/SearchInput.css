@@ -60,12 +60,13 @@ li {
     outline: none;
     height: 40px;
     font-size: 27px;
-    letter-spacing: -0.7px;
+    letter-spacing: 1.5px;
     color: #090a3c;
     -webkit-tap-highlight-color: transparent;
 }
 
 .input::placeholder {
+    position: absolute;
     color: #b3b3b3;
 }
 
