@@ -42,9 +42,9 @@ const LoginModal = ({ isOpen, onClose, onSuccess }) => {
     return (
         <div className={`modal ${isOpen ? "show" : ""}`}>
             <div className="modal-content">
-                <span className="close" onClick={onClose}>
+                {/* <span className="close" onClick={onClose}>
                     &times;
-                </span>
+                </span> */}
                 <h2 className="titulo">Login Usuário</h2>
                 {error && <p style={{ color: "red" }}>{error}</p>}
                 <form className="modal-form" onSubmit={handleSubmit}>

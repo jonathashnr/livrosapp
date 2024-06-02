@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { searchFilter } from "./Filter";
 import axios from "axios";
 import "./SearchInput.css";
+import Form from "react-bootstrap/Form";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 
 const DropdownItems = ({ onChange }) => {
     const [visible, setVisible] = useState(false);
@@ -67,18 +69,21 @@ const DropdownItems = ({ onChange }) => {
     return (
         <div className="container">
             <div tabIndex="0" className="input_container">
-                <input
-                    className="input"
-                    type="text"
-                    placeholder="Buscar livro"
-                    value={searchValue}
-                    onChange={handleChange}
-                    onFocus={() => {
-                        // if (searchValue) {
-                        setVisible(true);
-                        // };
-                    }}
-                />
+                <FloatingLabel
+                    controlId="floatingInput"
+                    label="Buscar livro"
+                    className="mb-3"
+                >
+                    <Form.Control
+                        type="text"
+                        placeholder="Buscar livro"
+                        onChange={handleChange}
+                        value={searchValue}
+                        onFocus={() => {
+                            setVisible(true);
+                        }}
+                    />
+                </FloatingLabel>
             </div>
             <div ref={dropdownRef} className={`dropdown ${visible ? "v" : ""}`}>
                 {visible && (

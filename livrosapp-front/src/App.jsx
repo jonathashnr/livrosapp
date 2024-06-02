@@ -8,12 +8,12 @@ import ModalEdit from "./Components/ModalEdit/Index.jsx";
 import LoginModal from "./Components/Login/LoginModal.jsx";
 import ModalDelete from "./Components/ModalDelete/ModalDelete.jsx";
 import ModalReview from "./Components/ModalReview/ModalReview.jsx";
+import Card from "react-bootstrap/Card";
 
 function App() {
     const [show, setShow] = useState(false);
     const [showDelete, setShowDelete] = useState(false);
     const [showReview, setShowReview] = useState(false);
-    // const [form, setForm] = useState(formDefault);
     const [books, setBooks] = useState([]);
     const [bookSelected, setBookSelected] = useState({});
     const [leituraSelected, setLeituraSelected] = useState({});
@@ -22,7 +22,6 @@ function App() {
     const [listBooks, setListBooks] = useState([]);
     const [error, setError] = useState("");
 
-    const handleShow = () => setShow(true);
     const handleClose = () => {
         setShow(false);
         setShowDelete(false);
@@ -86,7 +85,7 @@ function App() {
     };
 
     return (
-        <div className="App">
+        <Card bg="dark">
             {loginModalOpen && (
                 <LoginModal
                     isOpen={loginModalOpen}
@@ -137,7 +136,7 @@ function App() {
                     />
                 </>
             )}
-        </div>
+        </Card>
     );
 }
 

@@ -198,7 +198,7 @@ select {
 }
 
 html {
-    background-color: var(--cor-fundo);
+    background-color: #000000;
     text-align: center;
     padding: 0.5em;
 }

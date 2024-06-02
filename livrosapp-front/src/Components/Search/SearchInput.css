@@ -53,7 +53,7 @@ li {
 
 .input {
     width: 100%;
-    padding-bottom: 12px;
+    padding-bottom: 6px;
     min-width: 0;
     max-width: 430px;
     border: none;
@@ -89,7 +89,7 @@ li {
 .dropdown_item {
     width: 100%;
     max-width: 407px;
-    padding: 12px;
+    padding: 6px;
     cursor: pointer;
     &:hover {
         background-color: #f1f1f1d7;

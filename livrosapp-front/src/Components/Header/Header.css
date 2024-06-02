@@ -5,7 +5,7 @@ header {
 
 header h1 {
     font-family: var(--fonte-principal);
-    color: var(--cor-fonte);
+    color: #ffffff;
     font-size: var(--tamanho-fonte-titulo);
     transition: 200ms;
 }
