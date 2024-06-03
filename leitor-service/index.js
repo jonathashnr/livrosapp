@@ -1,11 +1,13 @@
 require("dotenv").config();
 const express = require("express");
+var cors = require("cors");
 const bodyParser = require("body-parser");
 const db = require("./database");
 const jwt = require("jsonwebtoken");
 const axios = require("axios");
 
 const app = express();
+app.use(cors());
 const port = 3001;
 const apiKey = process.env.API_KEY;
 const jwtSecret = process.env.JWT_SECRET;
@@ -185,6 +187,42 @@ app.get("/leitura/:id", authenticateJwt, (req, res) => {
                     : null,
             };
             res.json({ leitura });
+        }
+    );
+});
+
+app.put("/leitura/:id", authenticateJwt, (req, res) => {
+    const { id } = req.params;
+    const { estado } = req.body;
+    db.get(
+        `SELECT * FROM leitura WHERE id = ? AND leitor_id = ?`,
+        [id, req.leitor_id],
+        (err, row) => {
+            if (err) {
+                res.status(500).json({ error: err.message });
+                return;
+            }
+            if (!row) {
+                res.status(403).json({ error: "Acesso negado" });
+                return;
+            }
+            db.run(
+                `UPDATE leitura SET estado = ? WHERE id = ?`,
+                [estado, id],
+                function (err) {
+                    if (err) {
+                        res.status(500).json({ error: err.message });
+                        return;
+                    }
+                    if (this.changes === 0) {
+                        res.status(404).json({
+                            error: "Leitura não encontrada",
+                        });
+                        return;
+                    }
+                    res.json({ leitura: { id, estado } });
+                }
+            );
         }
     );
 });

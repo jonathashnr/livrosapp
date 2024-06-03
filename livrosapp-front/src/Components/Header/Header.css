@@ -1,0 +1,15 @@
+header {
+    text-align: center;
+    padding: 1em;
+}
+
+header h1 {
+    font-family: var(--fonte-principal);
+    color: #ffffff;
+    font-size: var(--tamanho-fonte-titulo);
+    transition: 200ms;
+}
+
+header h1:hover {
+    text-shadow: -4px 2px var(--cor-hover-1), -8px 4px var(--cor-hover-2);
+}

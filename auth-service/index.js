@@ -1,11 +1,13 @@
 require("dotenv").config();
 const express = require("express");
+var cors = require("cors");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const axios = require("axios");
 
 const app = express();
+app.use(cors());
 const port = 3002; // Porta para o microserviço de autenticação
 const jwtSecret = process.env.JWT_SECRET; // Adicione sua chave secreta JWT no .env
 
